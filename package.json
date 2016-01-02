@@ -1,0 +1,10 @@
+{
+  "name": "dji-log-parser",
+  "version": "0.0.0",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "long": "^3.0.1"
+  }
+}
