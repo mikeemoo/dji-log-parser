@@ -6,5 +6,9 @@
   "license": "MIT",
   "dependencies": {
     "long": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mikeemoo/dji-log-parser.git"
   }
 }
