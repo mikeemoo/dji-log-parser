@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script src="../browser.js"></script>
+  </head>
+  <body>
+    <input type="file" id="file" name="file" />
+
+    <script>
+    function handleFileSelect(evt) {
+      var files = evt.target.files;
+      if (files.length === 1) {
+
+        var file = files[0];
+
+        if (file.type !== "text/plain") {
+          return;
+        }
+
+        var reader = new FileReader();
+        reader.onload = function() {
+          var parser = new DJIParser();
+          parser.on("OSD", function(obj) {
+            console.log(obj.getLatitude());
+          });
+          parser.parse(this.result);
+        };
+        reader.readAsArrayBuffer(file);
+      }
+    }
+    document.getElementById("file").addEventListener("change", handleFileSelect, false);
+    </script>
+  </body>
+</html>
