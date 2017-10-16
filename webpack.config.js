@@ -1,16 +1,12 @@
-var webpack = require("webpack");
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-  watch: false,
-  Buffer: false,
   entry: __dirname + "/lib",
   output: {
     path: __dirname,
     filename: "browser.js"
   },
-  resolve: {
-    extensions: [
-      "", ".js"
-    ]
-  }
+  plugins: [
+    new UglifyJSPlugin()
+  ]
 };
