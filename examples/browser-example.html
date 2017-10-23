@@ -22,6 +22,15 @@
           parser.on("OSD", function(obj) {
             console.log(obj.getLatitude());
           });
+          parser.on("IMAGE", function(obj) {
+            var arrayBufferView = new Uint8Array(obj.buffer);
+            var blob = new Blob([arrayBufferView], {type: "image/jpeg"});
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL(blob);
+            var img = new Image();
+            img.src = imageUrl;
+            document.body.appendChild(img);
+          });
           parser.parse(this.result);
         };
         reader.readAsArrayBuffer(file);
